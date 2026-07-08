@@ -1,31 +1,6 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include "mouse_leds.dtsi"
 
-&lpspi4 {
-    // driver: zephyr 4.3.0-rc1
-    // compatible = "nxp,lpspi";
-    // driver: zephyr 4.0.0
-    compatible = "nxp,imx-lpspi";
-
-    status = "okay";
-
-    transfer-delay = <50>; // ns
-
-    pinctrl-0 = <&pinmux_lpspi4>;
-    pinctrl-names = "default";
-    
-    cs-gpios = <&gpio1 24 GPIO_ACTIVE_LOW>; // Steering 1 (front-left)
-
-    my_sensor: pmw3389@0 {
-        compatible = "pixart,pmw3389";
-        spi-max-frequency = <2000000>; // 2MHz
-        resolution = <200>; // overflow in 0.5s at 8m/s -> 200 CPI
-        status = "okay";
-        reg = <0>;
-    };
-
-};
-
 / {
     chosen {
         zmk,battery = &vbatt;
@@ -115,18 +90,18 @@ encoder: &qdec0 {
 };
 
 &pinctrl {
-	spi2_default: spi2_default {
+	spi0_default: spi0_default {
 		group1 {
-			psels = <NRF_PSEL(SPIM_SCK, 0, 6)>,
-			<NRF_PSEL(SPIM_MOSI, 0, 5)>,
-			<NRF_PSEL(SPIM_MISO, 0, 4)>;
+			psels = <NRF_PSEL(SPIM_SCK, 0, 13)>,
+			<NRF_PSEL(SPIM_MOSI, 0, 10)>,
+			<NRF_PSEL(SPIM_MISO, 0, 9)>;
 		};
 	};
-	spi2_sleep: spi2_sleep {
+	spi0_sleep: spi0_sleep {
 		group1 {
-			psels = <NRF_PSEL(SPIM_SCK, 0, 6)>,
-			<NRF_PSEL(SPIM_MOSI, 0, 5)>,
-			<NRF_PSEL(SPIM_MISO, 0, 4)>;
+			psels = <NRF_PSEL(SPIM_SCK, 0, 13)>,
+			<NRF_PSEL(SPIM_MOSI, 0, 10)>,
+			<NRF_PSEL(SPIM_MISO, 0, 9)>;
 			low-power-enable;
 		};
 	};
@@ -134,13 +109,21 @@ encoder: &qdec0 {
 
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 
-&spi2 {
+&spi0 {
 	compatible = "nordic,nrf-spim";
     status = "okay";
-	pinctrl-0 = <&spi2_default>;
-	pinctrl-1 = <&spi2_sleep>;
+	pinctrl-0 = <&spi0_default>;
+	pinctrl-1 = <&spi0_sleep>;
 	pinctrl-names = "default", "sleep";
 	cs-gpios = <&gpio0 27 GPIO_ACTIVE_LOW>;
+
+    my_sensor: pmw3389@0 {
+        compatible = "pixart,pmw3389";
+        spi-max-frequency = <2000000>; // 2MHz
+        resolution = <1500>; // overflow in 0.5s at 8m/s -> 200 CPI
+        status = "okay";
+        reg = <0>;
+    };
 };
 
 // / {
