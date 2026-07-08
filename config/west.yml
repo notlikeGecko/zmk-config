@@ -4,10 +4,8 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: teamspatzenhirn
-      url-base: https://github.com/teamspatzenhirn
-    # Additional modules containing boards/shields/custom code can be listed here as well
-    # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
+    - name: thelowprokill
+      url-base: https://github.com/thelowprokill
     - name: badjeff
       url-base: https://github.com/badjeff
   projects:
@@ -16,7 +14,7 @@ manifest:
       import: app/west.yml
       revision: main
     - name: pmw3389_zephyr_driver
-      remote: teamspatzenhirn
+      remote: thelowprokill
       revision: main
     - name: zmk-input-processor-report-rate-limit
       remote: badjeff
