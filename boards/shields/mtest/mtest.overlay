@@ -1,4 +1,5 @@
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <input/processors.dtsi>
 #include "mouse_leds.dtsi"
 
 / {
@@ -127,9 +128,11 @@ encoder: &qdec0 {
 };
 
 / {
-  mouse_input_listener {
+  pmw3389_listener: pmw3389_listener {
     compatible = "zmk,input-listener";
     device = <&mou0>;
+    input-processors = <&mouse_runtime_input_processor>;
+    status = "okay";
   };
 };
 
