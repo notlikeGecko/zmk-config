@@ -111,20 +111,19 @@ encoder: &qdec0 {
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 
 &spi0 {
-	compatible = "nordic,nrf-spim";
-    status = "okay";
-	pinctrl-0 = <&spi0_default>;
-	pinctrl-1 = <&spi0_sleep>;
-	pinctrl-names = "default", "sleep";
+	status = "okay";
 	cs-gpios = <&gpio0 29 GPIO_ACTIVE_LOW>;
+	mou0: pmw3360@0 {
+		compatible = "pixart,pmw3360";
+		status = "okay";
+		reg = <0>;
+		spi-max-frequency = <2000000>;
 
-    mou0: pmw3389@0 {
-        compatible = "pixart,pmw3389";
-        spi-max-frequency = <2000000>; // 2MHz
-        resolution = <200>; // overflow in 0.5s at 8m/s -> 200 CPI
-        status = "okay";
-        reg = <0>;
-    };
+		// pmw3360 driver parameters
+		irq-gpios = <&gpio0 27 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+		cpi = <600>;
+		rotate-90;
+	};
 };
 
 / {

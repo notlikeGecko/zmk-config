@@ -4,8 +4,8 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: thelowprokill
-      url-base: https://github.com/thelowprokill
+    - name: george-norton
+      url-base: https://github.com/george-norton
     - name: badjeff
       url-base: https://github.com/badjeff
   projects:
@@ -13,8 +13,8 @@ manifest:
       remote: zmkfirmware
       import: app/west.yml
       revision: main
-    - name: pmw3389_zephyr_driver
-      remote: thelowprokill
+    - name: zmk-driver-pmw3360
+      remote: george-norton
       revision: main
     - name: zmk-input-processor-report-rate-limit
       remote: badjeff
