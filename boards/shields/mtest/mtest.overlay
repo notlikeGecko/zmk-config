@@ -126,12 +126,12 @@ encoder: &qdec0 {
     };
 };
 
-// / {
-//   mouse_input_listener {
-//     compatible = "zmk,input-listener";
-//     device = <&mou0>;
-//   };
-// };
+/ {
+  mouse_input_listener {
+    compatible = "zmk,input-listener";
+    device = <&mou0>;
+  };
+};
 
 // /{
 // 	dpi_cycle: dpi_cycle {
