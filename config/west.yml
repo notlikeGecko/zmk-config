@@ -4,8 +4,8 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: george-norton
-      url-base: https://github.com/george-norton
+    - name: notlikeGecko
+      url-base: https://github.com/notlikeGecko
     - name: badjeff
       url-base: https://github.com/badjeff
   projects:
@@ -13,8 +13,8 @@ manifest:
       remote: zmkfirmware
       import: app/west.yml
       revision: main
-    - name: zmk-driver-pmw3360
-      remote: george-norton
+    - name: zmk-pmw3389-driver
+      remote: notlikeGecko
       revision: main
     - name: zmk-input-processor-report-rate-limit
       remote: badjeff
