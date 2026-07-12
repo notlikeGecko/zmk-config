@@ -134,20 +134,6 @@ encoder: &qdec0 {
   pmw3389_listener: pmw3389_listener {
     compatible = "zmk,input-listener";
     device = <&mou0>;
-    input-processors = <&zip_xy_scaler 1 1>;
+    //input-processors = <&zip_xy_scaler 1 1>;
   };
 };
-
-// /{
-// 	dpi_cycle: dpi_cycle {
-// 		compatible = "zmk,behavior-sensor-attr-cycle";
-// 		#binding-cells = <1>;
-// 		values = < 400 800 1200 2400 3200 >;
-// 		attr = <0>;
-// 		sensor_device = <&mou0>;
-// 		display-name = "DPI cycle";
-//         load_delay = <200>;
-//         save_delay = <1000>;
-// 		persistant;
-// 	};
-// };
