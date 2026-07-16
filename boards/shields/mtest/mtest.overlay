@@ -134,7 +134,7 @@ encoder: &qdec0 {
 };
 
 / {
-  pmw3389_listener: pmw3389_listener {
+  mouse_input_listener {
     compatible = "zmk,input-listener";
     device = <&mou0>;
     input-processors = <&zip_xy_scaler 1 1>;
