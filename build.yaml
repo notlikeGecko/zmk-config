@@ -21,4 +21,3 @@
 include:
     - board: xiao_ble//zmk
       shield: mtest
-      #snippet: zmk-usb-logging
