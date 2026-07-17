@@ -141,7 +141,7 @@ encoder: &qdec0 {
   };
 };
 
-&pmw0 {
+&pwm0 {
     status= "okay";
     pinctrl-0 = <&pwm0_default>;
     pinctrl-1 = <&pwm0_sleep>;
@@ -157,8 +157,8 @@ encoder: &qdec0 {
 
     /* map PWM gpios to IN1/2 pins on drv883x */
     /* IN1/2 shall be controlled via behavior param1 0 in 'zmk,behavior-drv883x' */
-    pwms = <&pmw0 1 PWM_MSEC(20) PWM_POLARITY_NORMAL>
-         , <&pmw0 2 PWM_MSEC(20) PWM_POLARITY_NORMAL>
+    pwms = <&pwm0 1 PWM_MSEC(20) PWM_POLARITY_NORMAL>
+         , <&pwm0 2 PWM_MSEC(20) PWM_POLARITY_NORMAL>
          ;
   };
 };
