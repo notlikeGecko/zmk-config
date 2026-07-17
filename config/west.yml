@@ -14,6 +14,9 @@ manifest:
     - name: zmk-paw3395-driver
       remote: badjeff
       revision: main
+    - name: zmk-drv883x-driver
+      remote: badjeff
+      revision: main
     - name: zmk-input-processor-report-rate-limit
       remote: badjeff
       revision: main
