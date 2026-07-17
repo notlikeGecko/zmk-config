@@ -77,8 +77,8 @@
         BASE {
             bindings = <
                 &mkp LCLK
-                &ins883x 0 160
-                &ins883x 0 96
+                &ins883x 0 265
+                &ins883x 0 0
                 &u_lt_mouse 1 MB4
                 &u_lt_mouse 2 MB5
             >;
