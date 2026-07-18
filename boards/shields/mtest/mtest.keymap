@@ -60,14 +60,6 @@
             // param1: channel = < 0 = IN1/2, 1 = IN3/4 >
             // param2: velocity = < min ... neutral ... max >
         };
-
-        motor_timer: motor_timer {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <40>;
-            bindings = <&ins883x 0 250>, <&ins883x 0 128>;
-        };
     };
 
     mou0_mmv_il {
@@ -85,8 +77,8 @@
         BASE {
             bindings = <
                 &mkp LCLK
-                &motor_timer
-                &mkp MCLK
+                &ins883x 0 255
+                &ins883x 0 128
                 &u_lt_mouse 1 MB4
                 &u_lt_mouse 2 MB5
             >;
