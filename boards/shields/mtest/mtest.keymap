@@ -19,6 +19,31 @@
 };
 
 / {
+
+    macros {
+        free_to_notched: free_to_notched {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap_time 10>
+                , <&macro_press &ins883x 0 256>
+                , <&macro_tap_time 30>
+                , <&macro_press &ins883x 0 128>
+                ;
+        };
+
+        notched_to_free: notched_to_free {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap_time 10>
+                , <&macro_press &ins883x 0 0>
+                , <&macro_tap_time 30>
+                , <&macro_press &ins883x 0 128>
+                ;
+        };
+    };
+
     behaviors {
         u_lt_mouse: u_lt_mouse {
             compatible = "zmk,behavior-hold-tap";
@@ -68,30 +93,6 @@
         vel-min-max = <128>;
         // param1: channel = < 0 = IN1/2, 1 = IN3/4 >
         // param2: velocity = < min ... neutral ... max >
-    };
-
-    macros {
-        free_to_notched: free_to_notched {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_tap_time 10>
-                , <&macro_press &ins883x 0 256>
-                , <&macro_tap_time 30>
-                , <&macro_press &ins883x 0 128>
-                ;
-        };
-
-        notched_to_free: notched_to_free {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_tap_time 10>
-                , <&macro_press &ins883x 0 0>
-                , <&macro_tap_time 30>
-                , <&macro_press &ins883x 0 128>
-                ;
-        };
     };
 
     keymap {
