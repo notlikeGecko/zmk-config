@@ -20,18 +20,6 @@
 
 / {
 
-    macros {
-        free_to_notched: free_to_notched {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_press &motor_timer 0 0>
-                , <&macro_pause_for_release>
-                , <&macro_release &motor_timer 0 0>
-                ;
-        };
-    };
-
     behaviors {
         u_lt_mouse: u_lt_mouse {
             compatible = "zmk,behavior-hold-tap";
@@ -75,10 +63,10 @@
 
         motor_timer: motor_timer {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <0>;
             flavor = "hold-preferred";
             tapping-term-ms = <40>;
-            bindings = <&ins883x 0 256>, <&ins883x 0 128>;
+            bindings = <&ins883x 0 250>, <&ins883x 0 128>;
         };
     };
 
@@ -97,7 +85,7 @@
         BASE {
             bindings = <
                 &mkp LCLK
-                &free_to_notched
+                &motor_timer
                 &mkp MCLK
                 &u_lt_mouse 1 MB4
                 &u_lt_mouse 2 MB5
