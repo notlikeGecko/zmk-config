@@ -19,7 +19,22 @@
 };
 
 / {
+    macros {
+        fr_to_lt: fr_to_lt {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+            <&ins883x 0 255>,<&ins883x 0 128>;
+        };
 
+        lt_to_fr: lt_to_fr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+            <&ins883x 0 0>,<&ins883x 0 128>;
+        };
+    };
+    
     behaviors {
         u_lt_mouse: u_lt_mouse {
             compatible = "zmk,behavior-hold-tap";

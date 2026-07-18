@@ -6,6 +6,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: badjeff
       url-base: https://github.com/badjeff
+    - name: notlikeGecko
+      url-base: https://github.com/notlikeGecko
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -15,7 +17,7 @@ manifest:
       remote: badjeff
       revision: main
     - name: zmk-drv883x-driver
-      remote: badjeff
+      remote: notlikeGecko
       revision: main
     - name: zmk-input-processor-report-rate-limit
       remote: badjeff
