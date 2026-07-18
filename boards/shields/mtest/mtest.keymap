@@ -25,7 +25,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_press $motor_timer 0 0>
+                = <&macro_press &motor_timer 0 0>
                 , <&macro_pause_for_release>
                 , <&macro_release &motor_timer 0 0>
                 ;
