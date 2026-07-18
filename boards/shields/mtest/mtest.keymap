@@ -79,6 +79,7 @@
                 , <&macro_press &ins883x 0 256>
                 , <&macro_tap_time 30>
                 , <&macro_press &ins883x 0 128>
+                ;
         };
 
         notched_to_free: notched_to_free {
@@ -89,6 +90,7 @@
                 , <&macro_press &ins883x 0 0>
                 , <&macro_tap_time 30>
                 , <&macro_press &ins883x 0 128>
+                ;
         };
     };
 
