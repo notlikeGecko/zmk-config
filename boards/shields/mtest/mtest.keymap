@@ -25,21 +25,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap_time 10>
-                , <&macro_press &ins883x 0 256>
-                , <&macro_tap_time 30>
-                , <&macro_press &ins883x 0 128>
-                ;
-        };
-
-        notched_to_free: notched_to_free {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_tap_time 10>
-                , <&macro_press &ins883x 0 0>
-                , <&macro_tap_time 30>
-                , <&macro_press &ins883x 0 128>
+                = <&macro_press $motor_timer 0 0>
+                , <&macro_pause_for_release>
+                , <&macro_release &motor_timer 0 0>
                 ;
         };
     };
@@ -84,6 +72,14 @@
             // param1: channel = < 0 = IN1/2, 1 = IN3/4 >
             // param2: velocity = < min ... neutral ... max >
         };
+
+        motor_timer: motor_timer {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <40>;
+            bindings = <&ins883x 0 256>, <&ins883x 0 128>;
+        };
     };
 
     mou0_mmv_il {
@@ -102,7 +98,7 @@
             bindings = <
                 &mkp LCLK
                 &free_to_notched
-                &notched_to_free
+                &mkp MCLK
                 &u_lt_mouse 1 MB4
                 &u_lt_mouse 2 MB5
             >;
