@@ -5,7 +5,6 @@
 #include <dt-bindings/zmk/pointing.h>
 
 #include <input/processors/report_rate_limit.dtsi>
-#include "drv_behavior.dtsi"
 
 #define U_TAPPING_TERM 220
 #define U_QUICK_TAP 200
@@ -71,6 +70,20 @@
             bindings = <&ec_s MOVE_Y(-37)>, <&ec_s MOVE_Y(37)>;
             tap-ms = <65>;
         };
+        
+        ins883x: behavior_drv883x_0 {
+            compatible = "zmk,behavior-drv883x";
+            #binding-cells = <2>;
+
+            /* assign a drv883x device */
+            drv883x-dev = <&drv883x_0>;
+
+            /* define velocity scope of param2, e.g. range of 265, 128 as neutral point */
+            vel-neutral = <128>;
+            vel-min-max = <128>;
+            // param1: channel = < 0 = IN1/2, 1 = IN3/4 >
+            // param2: velocity = < min ... neutral ... max >
+        };
     };
 
     mou0_mmv_il {
@@ -80,20 +93,6 @@
                 layers = <BASE VOLUME ADDIONAL>;
                 input-processors = <&zip_report_rate_limit 15>;
         };
-    };
-
-    ins883x: behavior_drv883x_0 {
-        compatible = "zmk,behavior-drv883x";
-        #binding-cells = <2>;
-
-        /* assign a drv883x device */
-        drv883x-dev = <&drv883x_0>;
-
-        /* define velocity scope of param2, e.g. range of 265, 128 as neutral point */
-        vel-neutral = <128>;
-        vel-min-max = <128>;
-        // param1: channel = < 0 = IN1/2, 1 = IN3/4 >
-        // param2: velocity = < min ... neutral ... max >
     };
 
     keymap {
