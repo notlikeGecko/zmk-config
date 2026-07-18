@@ -74,7 +74,7 @@
         free_to_notched: free_to_notched {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bidings
+            bindings
                 = <&macro_tap_time 10>
                 , <&macro_press &ins883x 0 256>
                 , <&macro_tap_time 30>
@@ -85,7 +85,7 @@
         notched_to_free: notched_to_free {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bidings
+            bindings
                 = <&macro_tap_time 10>
                 , <&macro_press &ins883x 0 0>
                 , <&macro_tap_time 30>
