@@ -65,7 +65,7 @@
         compatible = "zmk,input-listener";
         device = <&mou0>;
         limiter {
-                layers = <BASE VOLUME>;
+                layers = <BASE HYPERSHIFT>;
                 input-processors = <&zip_report_rate_limit 15>;
         };
     };
