@@ -18,7 +18,7 @@ manifest:
       revision: main
     - name: zmk-drv883x-driver
       remote: notlikeGecko
-      revision: main
+      revision: rz
     - name: zmk-input-processor-report-rate-limit
       remote: badjeff
       revision: main

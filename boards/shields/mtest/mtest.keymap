@@ -10,7 +10,7 @@
 #define U_QUICK_TAP 200
 
 #define BASE 0
-#define VOLUME 1
+#define HYPERSHIFT 1
 
 
 &zip_report_rate_limit {
@@ -76,21 +76,35 @@
         BASE {
             bindings = <
                 &mkp LCLK
-                &ins883x 0 256
+                &mkp RCLK
+                &mkp MCLK
+                &mkp MB4
+                &mkp MB5
+                &lt 2 A
+                &msc SCRL_LEFT
+                &msc SCRL_RIGHT
+                &kp c
                 &ins883x 0 0
-                &u_lt_mouse 1 MB4
-                &u_lt_mouse 2 MB5
+                &ins883x 0 256
+                &ins883x 0 256
             >;
             sensor-bindings = <&rot_enc>;
         };
 
-        VOLUME {
+        HYPERSHIFT {
             bindings = <
                 &mkp LCLK
                 &mkp RCLK
                 &mkp MCLK
                 &mkp MB4
                 &mkp MB5
+                &lt 1 a
+                &kp HOME
+                &kp END
+                &kp p
+                &ins883x 0 0
+                &ins883x 0 256
+                &ins883x 0 256
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
