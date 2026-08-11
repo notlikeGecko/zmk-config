@@ -75,9 +75,9 @@
 
         BASE {
             bindings = <
-                &mkp LCLK
                 &mkp RCLK
-                &mkp MCLK
+                &mkp LCLK
+                &ins883x 0 256
                 &mkp MB4
                 &mkp MB5
                 &lt 2 A
@@ -93,8 +93,8 @@
 
         HYPERSHIFT {
             bindings = <
-                &mkp LCLK
                 &mkp RCLK
+                &mkp LCLK
                 &mkp MCLK
                 &mkp MB4
                 &mkp MB5
