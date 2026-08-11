@@ -83,7 +83,7 @@
                 &lt 2 A
                 &msc SCRL_LEFT
                 &msc SCRL_RIGHT
-                &kp c
+                &kp C
                 &ins883x 0 0
                 &ins883x 0 256
                 &ins883x 0 256
@@ -98,10 +98,10 @@
                 &mkp MCLK
                 &mkp MB4
                 &mkp MB5
-                &lt 1 a
+                &lt 1 A
                 &kp HOME
                 &kp END
-                &kp p
+                &kp P
                 &ins883x 0 0
                 &ins883x 0 256
                 &ins883x 0 256
