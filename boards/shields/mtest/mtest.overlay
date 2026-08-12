@@ -49,9 +49,9 @@
             , <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             , <&gpio0 19 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             , <&gpio0 28 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio1 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio1 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             , <&gpio0 16 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio1 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio1 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
     };
@@ -174,8 +174,8 @@ encoder: &qdec0 {
 
     /* map PWM gpios to IN1/2 pins on drv883x */
     /* IN1/2 shall be controlled via behavior param1 0 in 'zmk,behavior-drv883x' */
-    pwms = <&pwm0 0 PWM_MSEC(20) PWM_POLARITY_NORMAL>
-         , <&pwm0 1 PWM_MSEC(20) PWM_POLARITY_NORMAL>
+    pwms = <&pwm0 0 PWM_MSEC(10) PWM_POLARITY_NORMAL>
+         , <&pwm0 1 PWM_MSEC(10) PWM_POLARITY_NORMAL>
          ;
   };
 };
