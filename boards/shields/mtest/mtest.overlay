@@ -33,8 +33,8 @@
         compatible = "zmk,kscan-gpio-direct";
         wakeup-source;
         input-gpios
-            = <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio0 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            = <&gpio1 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 16 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             , <&gpio0 3 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             , <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             , <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
@@ -71,15 +71,15 @@
 	};
     qdec_default: qdec_default {
 		group1 {
-			psels = <NRF_PSEL(QDEC_A, 0, 1)>,
-			<NRF_PSEL(QDEC_B, 0, 0)>;
+			psels = <NRF_PSEL(QDEC_A, 1, 11)>,
+			<NRF_PSEL(QDEC_B, 0, 29)>;
 			// bias-pull-up;
 		};
 	};
 	qdec_sleep: qdec_sleep {
 		group1 {
-			psels = <NRF_PSEL(QDEC_A, 0, 1)>,
-			<NRF_PSEL(QDEC_B, 0, 0)>;
+			psels = <NRF_PSEL(QDEC_A, 1, 11)>,
+			<NRF_PSEL(QDEC_B, 0, 29)>;
 			// bias-pull-up; // TODO: find out if this makes sense with low-power-enable
 			low-power-enable;
 		};
