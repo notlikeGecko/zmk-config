@@ -88,14 +88,14 @@
 		group1 {
 			psels = <NRF_PSEL(QDEC_A, 0, 4)>,
 			<NRF_PSEL(QDEC_B, 0, 5)>;
-			//bias-pull-up;
+			bias-pull-down;
 		};
 	};
 	qdec_sleep: qdec_sleep {
 		group1 {
 			psels = <NRF_PSEL(QDEC_A, 0, 4)>,
 			<NRF_PSEL(QDEC_B, 0, 5)>;
-			//bias-pull-up; // TODO: find out if this makes sense with low-power-enable
+			bias-pull-down; // TODO: find out if this makes sense with low-power-enable
 			low-power-enable;
 		};
 	};
