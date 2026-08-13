@@ -88,14 +88,12 @@
 		group1 {
 			psels = <NRF_PSEL(QDEC_A, 0, 4)>,
 			<NRF_PSEL(QDEC_B, 0, 5)>;
-			bias-pull-down;
 		};
 	};
 	qdec_sleep: qdec_sleep {
 		group1 {
 			psels = <NRF_PSEL(QDEC_A, 0, 4)>,
 			<NRF_PSEL(QDEC_B, 0, 5)>;
-			bias-pull-down; // TODO: find out if this makes sense with low-power-enable
 			low-power-enable;
 		};
 	};
@@ -143,7 +141,7 @@ encoder: &qdec0 {
 		// paw3395 driver parameters
 		irq-gpios = <&gpio1 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
 		cpi = <1500>;
-        invert-x;
+        invert-y;
         evt-type = <INPUT_EV_REL>;
 		x-input-code = <INPUT_REL_X>;
 		y-input-code = <INPUT_REL_Y>;

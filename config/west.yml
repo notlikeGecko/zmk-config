@@ -17,7 +17,7 @@ manifest:
       remote: badjeff
       revision: main
     - name: zmk-drv883x-driver
-      remote: notlikeGecko
+      remote: badjeff
       revision: main
     - name: zmk-input-processor-report-rate-limit
       remote: badjeff
