@@ -37,13 +37,38 @@
         >;
     };
 
-    kscan0: kscan {
+    kscan0 : kscan_composite {
+        compatible = "zmk,kscan-composite";
+        rows = <1>;
+        columns = <12>;
+        opt {
+            kscan = <&kscan1>;
+        };
+        mec {
+            kscan = <&kscan2>;
+            column-offset = <2>;
+        };
+        mot {
+            kscan = <&kscan3>;
+            column-offset = <11>;
+        };
+    };
+    kscan1 : kscan_opt {
         compatible = "zmk,kscan-gpio-direct";
         wakeup-source;
+        debounce-press-ms = <1>;
+        debounce-release-ms = <1>;
         input-gpios
             = <&gpio0 2 (GPIO_ACTIVE_LOW)>
             , <&gpio0 3 (GPIO_ACTIVE_LOW)>
-            , <&gpio0 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            ;
+    };
+
+    kscan2 : kscan_mec {
+        compatible = "zmk,kscan-gpio-direct";
+        wakeup-source;
+        input-gpios
+            = <&gpio0 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             , <&gpio1 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             , <&gpio0 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             , <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
@@ -52,7 +77,15 @@
             , <&gpio0 16 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             , <&gpio1 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             , <&gpio1 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
+    };
+
+    kscan3 : kscan_mec {
+        compatible = "zmk,kscan-gpio-direct";
+        debounce-press-ms = <125>;
+        debounce-release-ms = <125>;
+        input-gpios
+            = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
     };
 

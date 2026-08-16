@@ -6,8 +6,6 @@
 
 #include <input/processors/report_rate_limit.dtsi>
 
-#define U_TAPPING_TERM 220
-#define U_QUICK_TAP 200
 
 #define BASE 0
 #define HYPERSHIFT 1
@@ -20,15 +18,6 @@
 / {
 
     behaviors {
-        u_lt_mouse: u_lt_mouse {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <U_TAPPING_TERM>;
-            quick-tap-ms = <U_QUICK_TAP>;
-            flavor = "tap-preferred";
-            bindings = <&mo>, <&mkp>;
-        };
-
         ec_s: mouse_scroll {
             compatible = "zmk,behavior-input-two-axis";
             #binding-cells = <1>;
@@ -39,25 +28,26 @@
             acceleration-exponent = <0>;
         };
 
-        rot_enc: sensor_rotate {
+        rot_enc_v: sensor_rotate {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&ec_s MOVE_Y(-37)>, <&ec_s MOVE_Y(37)>;
+            tap-ms = <65>;
+        };
+
+        rot_enc_h: sensor_rotate {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&ec_s MOVE_X(-37)>, <&ec_s MOVE_X(37)>;
             tap-ms = <65>;
         };
         
         ins883x: behavior_drv883x_0 {
             compatible = "zmk,behavior-drv883x";
             #binding-cells = <2>;
-
-            /* assign a drv883x device */
             drv883x-dev = <&drv883x_0>;
-
-            /* define velocity scope of param2, e.g. range of 265, 128 as neutral point */
             vel-neutral = <128>;
             vel-min-max = <128>;
-            // param1: channel = < 0 = IN1/2, 1 = IN3/4 >
-            // param2: velocity = < min ... neutral ... max >
         };
     };
 
@@ -88,7 +78,7 @@
                 &ins883x 0 0
                 &kp M
             >;
-            sensor-bindings = <&rot_enc>;
+            sensor-bindings = <&rot_enc_v>;
         };
 
         HYPERSHIFT {
@@ -98,15 +88,15 @@
                 &mkp MCLK
                 &mkp MB4
                 &mkp MB5
-                &lt 1 A
-                &msc SCRL_LEFT
-                &msc SCRL_RIGHT
+                &to 1
+                &msc MOVE_X(-37)
+                &msc MOVE_X(37)
                 &kp P
                 &ins883x 0 0
                 &ins883x 0 256
                 &ins883x 0 256
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&rot_enc_h>;
         };
     };
 };
