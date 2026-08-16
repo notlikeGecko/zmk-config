@@ -80,7 +80,7 @@
             ;
     };
 
-    kscan3: kscan_mec {
+    kscan3: kscan_mot {
         compatible = "zmk,kscan-gpio-direct";
         debounce-press-ms = <125>;
         debounce-release-ms = <125>;
