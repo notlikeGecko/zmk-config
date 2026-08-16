@@ -37,7 +37,7 @@
         >;
     };
 
-    kscan0 : kscan_composite {
+    kscan0: kscan_composite {
         compatible = "zmk,kscan-composite";
         rows = <1>;
         columns = <12>;
@@ -53,7 +53,7 @@
             column-offset = <11>;
         };
     };
-    kscan1 : kscan_opt {
+    kscan1: kscan_opt {
         compatible = "zmk,kscan-gpio-direct";
         wakeup-source;
         debounce-press-ms = <1>;
@@ -64,7 +64,7 @@
             ;
     };
 
-    kscan2 : kscan_mec {
+    kscan2: kscan_mec {
         compatible = "zmk,kscan-gpio-direct";
         wakeup-source;
         input-gpios
@@ -80,7 +80,7 @@
             ;
     };
 
-    kscan3 : kscan_mec {
+    kscan3: kscan_mec {
         compatible = "zmk,kscan-gpio-direct";
         debounce-press-ms = <125>;
         debounce-release-ms = <125>;
